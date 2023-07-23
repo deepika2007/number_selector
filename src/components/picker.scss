@@ -1,0 +1,170 @@
+.ticket_card_list {
+  border-left: 1px solid #cdcdcd;
+  border-right: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  border-top: 1px solid #cdcdcd;
+  padding-top: 20px;
+  @media only screen and (min-width: 300px) and (max-width: 600px) {
+    padding-top: 0px !important;
+  }
+  .ticket_lines_list {
+    display: flex;
+    flex-wrap: wrap;
+    p {
+      cursor: pointer;
+      line-height: 13px;
+      text-decoration: underline;
+      color: #004cc6;
+      font-size: 0.9rem;
+      @media only screen and (min-width: 300px) and (max-width: 600px) {
+        margin-top: 20px !important;
+      }
+    }
+    .active_tab {
+      color: #3f3f3f !important;
+      text-decoration: none !important;
+    }
+  }
+}
+.ticket_card_container {
+    width: 200px;
+    margin-right: 10px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    @media only screen and (min-width: 300px) and (max-width: 600px) {
+      width: 139px !important;
+    }
+    .ticket-line {
+      border-radius: 8px;
+      background-color: #e3ebf9;
+      position: relative;
+      .card__filter__section {
+        display: none;
+        .filter_section {
+          margin: 2px 4px 10px 4px;
+          display: flex !important;
+          justify-content: space-between;
+        }
+      }
+      .quick_pick {
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        color: #0d1d33;
+        background-color: #ffffff;
+        border: solid 1px #ffffff;
+        border-radius: 80px;
+        width: fit-content;
+        font-size: 14px;
+        line-height: 1.71;
+        padding: 0 4px 0 4px;
+      }
+      .ticket_line_content {
+        padding: 10px 7px 17px 5px;
+        .choose_section {
+          height: 22px;
+          p {
+            text-align: center;
+            color: #4f5a69;
+            font-size: 13px;
+            font-weight: 700;
+          }
+          .divider_class {
+            border: 1.3px solid #4f5a69;
+          }
+        }
+      }
+      .card_count {
+        position: relative;
+        text-align: center;
+        margin-top: 13px;
+        .watermark {
+          top: 67.5px;
+          line-height: 100px;
+          font-size: 120px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          font-weight: bold;
+          opacity: 0.15;
+          position: absolute;
+          z-index: 1;
+          color: #004cc6;
+          height: 120px;
+        }
+        .card_table {
+          border-collapse: collapse;
+          .card_tr {
+            // text-align: initial;
+            .card__selected {
+              span {
+                color: #fff !important;
+                background-color: #374456 !important;
+                border-color: #9fa5ac !important;
+              }
+            }
+            .card_power_selected {
+              span {
+                color: #f22c4d !important;
+                background-color: #fde5e9 !important;
+                border-color: #f22c4d !important;
+              }
+            }
+            .card_td {
+              cursor: pointer;
+              padding: 0px;
+              display: inline-flex;
+              vertical-align: top;
+              border-color: transparent !important;
+              border-style: solid;
+              border-left: none;
+              border-top: none;
+              border-right-width: 5px;
+              border-bottom-width: 5px;
+              span {
+                border-style: solid;
+                border-width: 1px;
+                color: #4f5a69;
+                background-color: #fff;
+                border-color: #9fa5ac !important;
+                text-align: center;
+                width: 25px;
+                font-size: 15px;
+                padding: 3px 0;
+              }
+              :hover {
+                background-color: #d1d3d7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .active__card {
+    margin-top: -35px;
+    margin-left: -7px;
+    z-index: 12;
+    border: 3px solid #6a96dd;
+    background-color: #6a96dd !important;
+    position: absolute;
+    box-shadow: 0 0 20px #333;
+    .card__filter__section {
+      display: block !important;
+      background-color: #6a96dd;
+      overflow: hidden;
+      border-radius: 8px 8px 0px 0px;
+    }
+    .ticket_line_content {
+      padding: 10px 5px 5px 5px !important;
+      line-height: normal;
+      background: #c2d3f1;
+      border-end-start-radius: 8px;
+      border-end-end-radius: 8px;
+      margin: 2px;
+    }
+    .watermark {
+      display: none;
+    }
+  }

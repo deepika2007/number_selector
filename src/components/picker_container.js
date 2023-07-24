@@ -5,14 +5,14 @@ import PickerColumn from './picker_column';
 import { generateQuickPicArray } from '../helper';
 
 let linesList = [
-    { label: `2 columns`, value: 2 },
-    { label: `3 columns`, value: 3 },
-    { label: `5 columns`, value: 5 },
-    { label: `7 columns`, value: 7 },
-    { label: `10 columns`, value: 10 },
-    { label: `15 columns`, value: 15 },
-    { label: `20 columns`, value: 20 },
-    { label: `25 columns`, value: 25 },
+    { label: `2 screens`, value: 2 },
+    { label: `3 screens`, value: 3 },
+    { label: `5 screens`, value: 5 },
+    { label: `7 screens`, value: 7 },
+    { label: `10 screens`, value: 10 },
+    { label: `15 screens`, value: 15 },
+    { label: `20 screens`, value: 20 },
+    { label: `25 screens`, value: 25 },
 ]
 
 const PickerContainer = () => {
@@ -36,7 +36,6 @@ const PickerContainer = () => {
         setLines([...lines])
     }
 
-
     const onMouseHandle = (i, isKey) => {
         setActiveCard({
             activeIndex: i,
@@ -56,18 +55,16 @@ const PickerContainer = () => {
 
     // lines auto selection 
     const lineQuickSearch = (key, action) => {
-        const count = 8;
-        lines[key]['numbers'] = action === 'pick' ? generateQuickPicArray(count?.maxSelectTotalNumber, count?.totalShowNumber) : [];
-        lines[key]['powerNumbers'] = action === 'pick' ? generateQuickPicArray(count?.maxSelectTotalPowerNumber, count?.totalShowPowerNumber) : [];
+        lines[key]['numbers'] = action === 'pick' ? generateQuickPicArray(8, 150) : [];
+        lines[key]['powerNumbers'] = action === 'pick' ? generateQuickPicArray(1, 26) : [];
         setLines([...lines])
     }
 
     // all line auto selection
     const completeQuickSearch = (action) => {
-        const count = 8;
         lines?.forEach((a, index) => {
-            lines[index]['numbers'] = createRemainsLinesCount(action, lines[index]['numbers'], count, count)
-            lines[index]['powerNumbers'] = createRemainsLinesCount(action, lines[index]['powerNumbers'], count, count)
+            lines[index]['numbers'] = createRemainsLinesCount(action, lines[index]['numbers'], 8, 150)
+            lines[index]['powerNumbers'] = createRemainsLinesCount(action, lines[index]['powerNumbers'], 1, 26)
         })
         setLines([...lines])
     }
@@ -86,11 +83,11 @@ const PickerContainer = () => {
     }
 
     return (
-        <Box>
-            <Typography variant='h4'>Number Selector</Typography>
+        <Box sx={{ m: { xs: 2, sm: 2, md: 7 } }}>
+            <Typography variant='h4'>Movie ticket Selector</Typography>
             <Box className='actions'>
-                <Button variant='outlined' color='success'>All Selection</Button>
-                <Button variant='outlined' color='error'>Reset</Button>
+                <Button variant='outlined' color='success' onClick={() => completeQuickSearch('add')}>All Selection</Button>
+                <Button variant='outlined' color='error' className='remove_icon' onClick={() => completeQuickSearch('remove')}>Reset</Button>
             </Box>
             <Grid className='ticket_card_list'>
                 <Box className='ticket_lines_list'>
@@ -106,9 +103,9 @@ const PickerContainer = () => {
                         onMouseEnter={() => onMouseHandle(index + 1, true)}
                         onMouseLeave={() => onMouseHandle(null, false)}
                         activeCard={activeCard}
-                        numberCount={70}
-                        powerNumberCount={20}
-                        maxSelectNumberCount={9}
+                        numberCount={150}
+                        powerNumberCount={26}
+                        maxSelectNumberCount={8}
                         maxSelectPowerNumberCount={1}
                         ticket={{ numbers, powerNumbers }}
                         singleQuickSearch={singleQuickSearch}

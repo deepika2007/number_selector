@@ -32,12 +32,10 @@ const PickerColumn = ({
                     </Box>
                     <Box className='ticket_line_content'>
                         <Box className='choose_section'>
-                            {nCount > 0 && <>
-                                <Typography> Vacant count : {nCount}</Typography>
-                            </>}
+                            {nCount > 0 && <Typography> Seat number selection : {nCount}</Typography>}
                         </Box>
                         <Box className='card_count'>
-                            <Box className='watermark'>{index}</Box>
+                            <Box className='watermark'>S-{index}</Box>
                             <Table className='card_table'>
                                 <TableBody>
                                     <TableRow className='card_tr' >
@@ -53,7 +51,7 @@ const PickerColumn = ({
                             </Table>
                         </Box>
                         <Box className='choose_section' sx={{ mt: 1 }}>
-                            {pCount > 0 && <Typography> Vacant count :  {pCount}</Typography>}
+                            {pCount > 0 && <Typography> Seat number selection :  {pCount}</Typography>}
                         </Box>
                         <Divider className='divider_class' />
                         <Box className='card_count'>

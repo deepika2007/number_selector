@@ -41,7 +41,7 @@ const PickerColumn = ({
                                     <TableRow className='card_tr' >
                                         {Array(numberCount)?.fill()?.map((number, i) =>
                                             <TableCell className={`card_td  ${(ticket?.numbers?.find(num => num === i + 1)) ? 'card__selected' : ''} `} key={i}
-                                                onClick={() => singleQuickSearch(index - 1, 'numbers', i + 1, maxSelectNumberCount)}
+                                                onClick={() => singleQuickSearch(index - 1, 'numbers', i + 1, 8)}
                                             >
                                                 <Typography variant='span'>{i + 1}</Typography>
                                             </TableCell>
@@ -61,7 +61,7 @@ const PickerColumn = ({
                                         {Array(powerNumberCount)?.fill()?.map((number, i) =>
                                             <TableCell className={`card_td ${(ticket?.powerNumbers?.find(num => num === i + 1)) ? 'card_power_selected' : ''} `}
                                                 key={i}
-                                                onClick={() => singleQuickSearch(index - 1, 'powerNumbers', i + 1, maxSelectPowerNumberCount)}
+                                                onClick={() => singleQuickSearch(index - 1, 'powerNumbers', i + 1, 1)}
                                             >
                                                 <Typography variant='span'>{i + 1}</Typography>
                                             </TableCell>

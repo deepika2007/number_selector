@@ -5,20 +5,16 @@ import PickerColumn from './picker_column';
 import { generateQuickPicArray } from '../helper';
 
 let linesList = [
+    { label: `1 screens`, value: 1 },
     { label: `2 screens`, value: 2 },
     { label: `3 screens`, value: 3 },
-    { label: `5 screens`, value: 5 },
-    { label: `7 screens`, value: 7 },
-    { label: `10 screens`, value: 10 },
-    { label: `15 screens`, value: 15 },
-    { label: `20 screens`, value: 20 },
-    { label: `25 screens`, value: 25 },
+    { label: `4 screens`, value: 4 },
 ]
 
 const PickerContainer = () => {
     const [lines, setLines] = useState([
-        { numbers: [], powerNumbers: [] },
-        { numbers: [], powerNumbers: [] }])
+        { numbers: [], powerNumbers: [] }
+    ])
 
     const [activeCard, setActiveCard] = useState({
         activeIndex: null,
@@ -55,7 +51,7 @@ const PickerContainer = () => {
 
     // lines auto selection 
     const lineQuickSearch = (key, action) => {
-        lines[key]['numbers'] = action === 'pick' ? generateQuickPicArray(8, 150) : [];
+        lines[key]['numbers'] = action === 'pick' ? generateQuickPicArray(8, 100) : [];
         lines[key]['powerNumbers'] = action === 'pick' ? generateQuickPicArray(1, 26) : [];
         setLines([...lines])
     }
@@ -63,7 +59,7 @@ const PickerContainer = () => {
     // all line auto selection
     const completeQuickSearch = (action) => {
         lines?.forEach((a, index) => {
-            lines[index]['numbers'] = createRemainsLinesCount(action, lines[index]['numbers'], 8, 150)
+            lines[index]['numbers'] = createRemainsLinesCount(action, lines[index]['numbers'], 8, 100)
             lines[index]['powerNumbers'] = createRemainsLinesCount(action, lines[index]['powerNumbers'], 1, 26)
         })
         setLines([...lines])
@@ -83,7 +79,7 @@ const PickerContainer = () => {
     }
 
     return (
-        <Box sx={{ m: { xs: 2, sm: 2, md: 7 } }}>
+        <Box sx={{ margin: { xs: '10px auto', sm: '10px auto', md: '30px auto' }, width: '60%' }}>
             <Typography variant='h4'>Movie ticket Selector</Typography>
             <Box className='actions'>
                 <Button variant='outlined' color='success' onClick={() => completeQuickSearch('add')}>All Selection</Button>
@@ -103,7 +99,7 @@ const PickerContainer = () => {
                         onMouseEnter={() => onMouseHandle(index + 1, true)}
                         onMouseLeave={() => onMouseHandle(null, false)}
                         activeCard={activeCard}
-                        numberCount={150}
+                        numberCount={100}
                         powerNumberCount={26}
                         maxSelectNumberCount={8}
                         maxSelectPowerNumberCount={1}

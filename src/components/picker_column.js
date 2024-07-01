@@ -78,11 +78,3 @@ const PickerColumn = ({
 }
 
 export default PickerColumn
-
-
-// const lines = [{numbers: [1,6,7,8,2], powerNumbers: [1,2]}, {numbers: [1,7,6,8,2], powerNumbers: [1,2]},{numbers: [1,6,7,5,2], powerNumbers: [1,2]},{numbers: [1,6,3,8,2], powerNumbers: [1,2]}]
-// lines.reduce((res, {numbers, powerNumbers}, index) => {
-//     const key = `numbers_${numbers.sort().join(',')}_powerNumbers_${powerNumbers.sort().join(',')}`;
-//     res.set(key, [...(res.get(key) || []), index])
-//     return res;
-// }, new Map())
